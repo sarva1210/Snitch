@@ -2,7 +2,6 @@ import productModel from "../models/product.model.js";
 import { uploadFile } from "../services/storage.service.js";
 
 export async function createProduct(req, res) {
-
     const { title, description, priceAmount, priceCurrency } = req.body;
     const seller = req.user;
 
