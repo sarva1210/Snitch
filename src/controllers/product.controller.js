@@ -32,6 +32,7 @@ export async function createProduct(req, res) {
     })
 }
 
+
 export async function getSellerProducts(req, res) {
     const seller = req.user;
 
