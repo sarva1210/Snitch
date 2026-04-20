@@ -2,7 +2,9 @@ import userModel from "../models/user.model.js";
 import jwt from "jsonwebtoken"
 import { config } from "../config/config.js";
 
+
 async function sendTokenResponse(user, res, message) {
+
     const token = jwt.sign({
         id: user._id,
     }, config.JWT_SECRET, {
@@ -24,7 +26,6 @@ async function sendTokenResponse(user, res, message) {
     })
 
 }
-
 
 export const register = async (req, res) => {
     const { email, contact, password, fullname, isSeller } = req.body;
@@ -57,7 +58,6 @@ export const register = async (req, res) => {
     }
 }
 
-
 export const login = async (req, res) => {
     const { email, password } = req.body;
 
@@ -75,7 +75,6 @@ export const login = async (req, res) => {
 
     await sendTokenResponse(user, res, "User logged in successfully")
 }
-
 
 export const googleCallback = async (req, res) => {
     const { id, displayName, emails, photos } = req.user
@@ -95,6 +94,7 @@ export const googleCallback = async (req, res) => {
         })
     }
 
+
     const token = jwt.sign({
         id: user._id,
     }, config.JWT_SECRET, {
@@ -104,4 +104,20 @@ export const googleCallback = async (req, res) => {
     res.cookie("token", token)
 
     res.redirect("http://localhost:5173/")
+}
+
+export const getMe = async (req, res) => {
+    const user = req.user;
+
+    res.status(200).json({
+        message: "User fetched successfully",
+        success: true,
+        user: {
+            id: user._id,
+            email: user.email,
+            contact: user.contact,
+            fullname: user.fullname,
+            role: user.role
+        }
+    })
 }
