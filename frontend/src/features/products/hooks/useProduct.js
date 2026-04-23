@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux"
 import { setSellerProducts, setProducts } from "../state/product.slice"
 
 export const useProduct = () => {
-
     const dispatch = useDispatch()
 
     async function handleCreateProduct(formData) {
