@@ -34,5 +34,4 @@ export const useCart = () => {
     }
 
     return { handleAddItem, handleGetCart, handleIncrementCartItem, handleCreateCartOrder, handleVerifyCartOrder }
-
 }
