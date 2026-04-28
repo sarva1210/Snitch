@@ -21,6 +21,7 @@ const OrderSuccess = () => {
     const location = useLocation()
 
     const queryParams = new URLSearchParams(location.search)
+    
     const orderId = queryParams.get("order_id") || "SN-00000"
 
     return (
