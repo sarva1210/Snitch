@@ -28,7 +28,7 @@ const Cart = () => {
     const { error, isLoading, Razorpay } = useRazorpay();
     const user = useSelector(state => state.user)
 
-    /* Local quantity state — key: cartItem._id, value: number */
+    // Local quantity state — key: cartItem._id, value: number
     const [ quantities, setQuantities ] = useState({})
 
     useEffect(() => {
@@ -180,9 +180,7 @@ const Cart = () => {
                 <div className="max-w-7xl mx-auto px-8 lg:px-16 xl:px-24 pt-12 lg:pt-20">
                     <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
 
-                        {/* ═══════════════════════════════════════════════
-                            LEFT COLUMN — Cart Items (65%)
-                        ═══════════════════════════════════════════════ */}
+                        {/* LEFT COLUMN — Cart Items (65%)*/}
                         <div className="w-full lg:w-[65%]">
                             {/* Heading */}
                             <div className="mb-10">
@@ -378,9 +376,7 @@ const Cart = () => {
                             </div>
                         </div>
 
-                        {/* ═══════════════════════════════════════════════
-                            RIGHT COLUMN — Order Summary (35%, Sticky)
-                        ═══════════════════════════════════════════════ */}
+                        {/*  RIGHT COLUMN — Order Summary (35%, Sticky)*/}
                         <div className="w-full lg:w-[35%] lg:sticky lg:top-28">
                             <div
                                 className="p-8"
